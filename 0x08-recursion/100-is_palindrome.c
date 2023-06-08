@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 int length_calculator(char *s);
 int check_palindrome(char *s, int i, int j);
@@ -14,6 +15,7 @@ int is_palindrome(char *s)
 	int length, result;
 
 	length = length_calculator(s);
+	/* printf("\n len: %d \n", length - 1); */
 	if (length <= 1)
 		return (1);
 	result = check_palindrome(s, 0, length - 1);
@@ -30,10 +32,11 @@ int length_calculator(char *s)
 {
 	int length = 0;
 
-	while (s[length] != '\0')
+	if (s[length] == '\0')
 	{
-		length++;
+		return (0);
 	}
+	length = length_calculator(&s[1]) + 1;
 	return (length);
 }
 
