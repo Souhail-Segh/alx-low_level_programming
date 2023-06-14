@@ -16,10 +16,17 @@ char *str_concat(char *s1, char *s2)
 	int i1, i2, l1, l2, max;
 	char *s;
 
-	i1 = 0;
-	i2 = 0;
-	l1 = calcul_len(s1);
-	l2 = calcul_len(s2);
+	i1 = i2 = 0;
+	l1 = l2 = 0;
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+
+	while (s1[l1] != '\0')
+		l1++;
+	while (s2[l2] != '\0')
+		l2++;
 	max = l1 + l2;
 
 	if (max == 0)
@@ -44,27 +51,4 @@ char *str_concat(char *s1, char *s2)
 	}
 	s[max] = '\0';
 	return (s);
-}
-
-/**
- * calcul_len - length of a string
- * @s: string
- * Return: the length of a string
- */
-
-int calcul_len(char *s)
-{
-	int l;
-
-	l = 0;
-	if (s == NULL)
-	{
-		l = 0;
-	}
-	else
-	{
-		while (s[l] != '\0')
-			l++;
-	}
-	return (l);
 }
