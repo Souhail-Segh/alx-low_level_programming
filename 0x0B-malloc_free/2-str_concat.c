@@ -28,11 +28,14 @@ char *str_concat(char *s1, char *s2)
 	if (s == NULL)
 		return (NULL);
 
-	while (i1 <= l1 - 1)
+	while (i1 <= l1)
 	{
 		s[i1] = s1[i1];
 		i1++;
 	}
+
+	if (i1 != 0)
+		i1--;
 
 	while (i2 <= l2)
 	{
