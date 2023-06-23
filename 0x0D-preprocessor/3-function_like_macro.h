@@ -2,6 +2,6 @@
 #define abs_h
 
 
-#define ABS(x)((x) >= (-x) ? (x) : (-x))
+#define ABS(x)((x) >= -(x) ? (x) : -(x))
 
 #endif
