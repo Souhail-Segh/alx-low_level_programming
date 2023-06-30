@@ -3,6 +3,30 @@
 #include <stdlib.h>
 
 /**
+ * *_strcpy - copies a string fron src to dest
+ * @dest: a pointer in which the src is copied
+ * @src: a string to copy
+ *
+ * Return: None
+ */
+void _strcpy(char *dest, char *src)
+{
+	int len, i;
+
+	len = 0;
+	while (src[len] != '\0')
+	{
+		len++;
+	}
+
+	for (i = 0; i < len; i++)
+	{
+		dest[i] = src[i];
+	}
+	dest[i] = '\0';
+}
+
+/**
  * new_dog - initialize a dog struct
  * @name: the name of the dog
  * @age: the age of the dog
@@ -21,7 +45,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		dog->name = malloc(sizeof(name));
 		if (dog->name != NULL)
-			strcpy(dog->name, name);
+			_strcpy(dog->name, name);
 		else
 		{
 			free(dog->name);
@@ -35,7 +59,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		dog->owner = malloc(sizeof(owner));
 		if (dog->owner != NULL)
-			strcpy(dog->owner, owner);
+			_strcpy(dog->owner, owner);
 		else
 		{
 			free(dog->owner);
