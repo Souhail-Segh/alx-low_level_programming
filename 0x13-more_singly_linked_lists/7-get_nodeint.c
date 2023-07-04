@@ -12,19 +12,21 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 	unsigned int i;
 	listint_t *node;
 
-	node = malloc(listint_t);
-	if (head == NULL || node == NULL)
+	if (!head)
 		return (NULL);
 
 	node = head;
 
+	if (index == 0)
+		return (node);
+
 	i = 0;
-	while (node != NULL && i < index)
+	while (node && i < index)
 	{
 		node = node->next;
 		i++;
 	}
-	if (node == NULL)
+	if (!node)
 		return (NULL);
 	return (node);
 }
