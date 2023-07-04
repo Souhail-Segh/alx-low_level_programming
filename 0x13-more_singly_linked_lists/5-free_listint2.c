@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * free_listint - free a linked list
+ * free_listint2 - free a linked list
  * @head: adress of first node
  *
  * Return: none
