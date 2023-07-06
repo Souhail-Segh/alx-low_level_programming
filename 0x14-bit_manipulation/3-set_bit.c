@@ -26,7 +26,7 @@ return (n);
 
 
 /**
- * set_bit - set the bit in an index
+ * set_bit - set the bit 1 in an index
  * @n: the integer number
  * @index: the bit in a specific position
  *
