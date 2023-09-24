@@ -12,24 +12,31 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int index, size;
+	unsigned long int index;
 	hash_node_t *tmp;
+	char *k, *v;
 
 	if (ht == NULL || key == NULL || *key == '\0')
 		return (0);
 
-	size = ht->size;
-	index = key_index((unsigned char *)key, size);
+	index = key_index((unsigned char *)key, ht->size);
 	tmp = ht->array[index];
+	k = strdup(key);
+	v = strdup(value);
+	if (k == NULL || strcmp(v, value) != 0)
+		return (0);
 
 	while (tmp != NULL)
 	{
-		if (tmp->key == key)
-			return (0);
+		if (strcmp(tmp->key, k) == 0)
+		{
+			tmp->value = v;
+			return (1);
+		}
 		tmp = tmp->next;
 	}
-	tmp->key = strdup(key);
-	tmp->value = strdup(value);
+	tmp->key = k;
+	tmp->value = v;
 	tmp->next = ht->array[index];
 	ht->array[index] = tmp;
 
