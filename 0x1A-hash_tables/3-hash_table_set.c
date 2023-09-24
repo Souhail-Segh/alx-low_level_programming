@@ -40,8 +40,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(v);
 		return (0);
 	}
-	new->k = strdup(key);
-	if (new->k == NULL)
+	new->key = strdup(key);
+	if (new->key == NULL)
 	{
 		free(new);
 		return (0);
