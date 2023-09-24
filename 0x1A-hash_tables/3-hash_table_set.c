@@ -22,7 +22,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = key_index((unsigned char *)key, ht->size);
 	k = strdup(key);
 	v = strdup(value);
-	if (k == NULL || strcmp(v, value) != 0)
+	if (k == NULL || v == NULL)
 		return (0);
 
 	for (i = 0; i < ht->size; i++)
