@@ -12,7 +12,6 @@ void hash_table_print(const hash_table_t *ht)
 
 	if (ht == NULL)
 	{
-		printf("{}");
 		return;
 	}
 	printf("{");
@@ -21,12 +20,11 @@ void hash_table_print(const hash_table_t *ht)
 		if (ht->array[i] != NULL)
 		{
 			node = ht->array[i];
-			if (flag_comma == 1 && node)
+			if (flag_comma == 1)
 				printf(", ");
 			while (node)
 			{
-				printf("'%s': '%s'",
-				       ht->array[i]->key, ht->array[i]->value);
+				printf("'%s': '%s'", node->key, node->value);
 				node = node->next;
 				if (node != NULL)
 					printf(", ");
