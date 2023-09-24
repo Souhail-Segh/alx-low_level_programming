@@ -24,17 +24,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (v == NULL)
 		return (0);
 
-	for (i = 0; i < ht->size; i++)
+	for (i = 0; ht->array[i]; i++)
 	{
-		try = (i + index) % ht->size;
-		if (strcmp(ht->array[try]->key, key) == 0)
+		if (strcmp(ht->array[i]->key, key) == 0)
 		{
-			if (strcmp(ht->array[try]->value, value) != 0)
-			{
-				free(ht->array[try]->value);
-				ht->array[try]->value = v;
-				return (1);
-			}
+			free(ht->array[i]->value);
+			ht->array[i]->value = v;
+			return (1);
 		}
 	}
 
